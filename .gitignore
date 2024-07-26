@@ -68,3 +68,5 @@ buck-out/
 
 ## taro-react-native-release
 !release/** 
+
+/dist

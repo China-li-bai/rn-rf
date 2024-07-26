@@ -29,7 +29,7 @@ export class Service {
   }
   async formatResult(promise) {
     const result: Taro.request.SuccessCallbackResult<any> = await promise;
-    console.log("format", { result });
+    console.log("format before", { result });
     if (result.statusCode === HTTP_STATUS.SUCCESS) {
       return result.data;
     }
