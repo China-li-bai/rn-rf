@@ -1,3 +1,5 @@
+import path from "path"
+
 const config = {
   projectName: 'rn-rf',
   date: '2024-7-17',
@@ -9,6 +11,11 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
+  alias:{
+    components: path.resolve(__dirname, '..', 'src/components'),
+    mock: path.resolve(__dirname, '..', 'src/mock'),
+    service: path.resolve(__dirname, '..', 'src/service'),
+  },
   plugins: [],
   defineConstants: {
   },
