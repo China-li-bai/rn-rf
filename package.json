@@ -33,7 +33,7 @@
     "start": "react-native start",
     "podInstall": "pod-install",
     "upgradePeerdeps": "install-peerdeps @tarojs/taro-rn@3.6.34 -o -Y && install-peerdeps @tarojs/components-rn@3.6.34 -o -Y && install-peerdeps @tarojs/router-rn@3.6.34 -o -Y && pod-install",
-    "mock":"json-server -p 9000 __json-server__/db.json"
+    "mock": "json-server -p 9000 __json-server__/db.json"
   },
   "browserslist": [
     "last 3 versions",
@@ -43,6 +43,7 @@
   "author": "",
   "dependencies": {
     "@babel/runtime": "^7.7.7",
+    "@jlongster/sql.js": "^1.6.7",
     "@tarojs/components": "3.6.34",
     "@tarojs/helper": "3.6.34",
     "@tarojs/plugin-framework-react": "3.6.34",
@@ -60,9 +61,11 @@
     "@tarojs/shared": "3.6.34",
     "@tarojs/taro": "3.6.34",
     "@tarojs/taro-rn": "3.6.34",
+    "absurd-sql": "^0.0.54",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-native": "^0.70.1"
+    "react-native": "^0.70.1",
+    "wa-sqlite": "github:rhashimoto/wa-sqlite"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

@@ -1,12 +1,11 @@
 import {  PropsWithChildren, PureComponent } from "react";
 import { View, Text } from "@tarojs/components";
 import "./index.scss";
-import { getList } from "mock";
-
+import {hello} from "../../sql/wa-sql"
+// 
 export default class Index extends PureComponent<PropsWithChildren> {
   componentDidMount() {
-    getList()
-
+    hello()
   }
 
   componentWillUnmount() {}
@@ -28,3 +27,4 @@ export default class Index extends PureComponent<PropsWithChildren> {
     );
   }
 }
+
