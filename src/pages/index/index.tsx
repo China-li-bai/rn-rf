@@ -1,30 +1,33 @@
-import {  PropsWithChildren, PureComponent } from "react";
-import { View, Text } from "@tarojs/components";
+import { memo, PropsWithChildren, PureComponent, useEffect } from "react";
+import { View, Text, Button } from "@tarojs/components";
 import "./index.scss";
-import {hello} from "../../sql/wa-sql"
-// 
-export default class Index extends PureComponent<PropsWithChildren> {
-  componentDidMount() {
-    hello()
-  }
+import { SQLiteManage } from "../../sql/SQLiteManage";
 
-  componentWillUnmount() {}
-
-  componentDidShow() {
-    // Taro.request({url:"http://127.0.0.1:9000/list",method:"GET"}).then(res=>{
-    //   console.log({res});
-      
-    // })
-  }
-
-  componentDidHide() {}
-
-  render() {
-    return (
-      <View className="index">
-        <Text>words!</Text>
-      </View>
-    );
-  }
+    // Use a service worker for downloading. This is currently the only
+// cross-browser way to stream to a local file.
+// navigator.serviceWorker.register('service-worker.js', { type: 'module' });
+export default memo(()=>{
+const sm = new  SQLiteManage({DBname:"sqlite"})
+const init = async()=>{
+  await sm.create()
+  
 }
-
+useEffect(()=>{
+  init()
+},[])
+  return (
+    <View className="index">
+      <Text>words!</Text>
+      <Button onClick={()=>{
+        sm.select()
+      }}>SELECT</Button>
+      <input
+        type="file"
+        onChange={async(e) => {
+          sm.fileImport(e)
+          console.log({ e });
+        }}
+      />
+    </View>
+  );
+})

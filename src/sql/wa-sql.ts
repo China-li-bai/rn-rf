@@ -6,10 +6,16 @@ export async function hello() {
   const sqlite3 = SQLite.Factory(module);
   const vfs = await IDBBatchAtomicVFS.create("hello2222222222", module);
   const db = await sqlite3.open_v2("test");
-  await sqlite3.exec(db, `SELECT 'Hello, world!'`, (row, columns) => {
   sqlite3.vfs_register(vfs, true);
+
+  await sqlite3.exec(db, `CREATE TABLE IF NOT EXISTS t(ID PRIMARY KEY,j INTEGER);
+INSERT OR REPLACE INTO t VALUES ('foo',121), ('bar',1);
+SELECT * FROM t;`, (row, columns) => {
     
-    console.log({ row });
+    console.log({db, row,vfs });
   });
+  await sqlite3.exec(db, ``,()=>{
+    
+  })
   await sqlite3.close(db);
 }
