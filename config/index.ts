@@ -16,6 +16,7 @@ const config = {
     mock: path.resolve(__dirname, "..", "src/mock"),
     service: path.resolve(__dirname, "..", "src/service"),
     lib: path.resolve(__dirname, "..", "src/lib"),
+    tools: path.resolve(__dirname, "..", "src/tools"),
   },
   plugins: [],
 
