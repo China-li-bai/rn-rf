@@ -188,27 +188,4 @@ export class IndexedDBClient {
 
 // 当试图打开一个尚未被创建的数据库，或者试图连接一个数据库还没被创立的版本时，onupgradeneeded 事件会被触发
 
-DBOpenRequest.onupgradeneeded = function (event) {
-  var db = event.target.result;
-
-  db.onerror = function (event) {
-   
-  };
-
-  // 使用 IDBDatabase.createObjectStore 方法，可创建一个对象存储区
-
-  var objectStore = db.createObjectStore("toDoList", { keyPath: "taskTitle" });
-
-  // 定义 objectStore 将包含哪些数据项
-
-  objectStore.createIndex("hours", "hours", { unique: false });
-  objectStore.createIndex("minutes", "minutes", { unique: false });
-  objectStore.createIndex("day", "day", { unique: false });
-  objectStore.createIndex("month", "month", { unique: false });
-  objectStore.createIndex("year", "year", { unique: false });
-
-  objectStore.createIndex("notified", "notified", { unique: false });
-
-  note.innerHTML += "<li>Object store created.</li>";
-};
 
