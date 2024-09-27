@@ -4,6 +4,7 @@ import "./index.scss";
 import { fileImport } from "../../sql/vfs";
 import { IndexedDBClient } from "store/indexedDB";
 import { json2idb } from "tools/json2idb";
+import { helloWaSQL } from "sql/wa-sql";
 const idb = new IndexedDBClient("IndexedDBClient");
 export default memo(() => {
   useEffect(() => {}, []);
@@ -28,6 +29,7 @@ export default memo(() => {
         getStore
       </Button>
       <Button onClick={json2idb}>json2idb</Button>
+      <Button onClick={helloWaSQL}>helloWaSQL</Button>
       <input
         type="file"
         onChange={async (e) => {

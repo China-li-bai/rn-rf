@@ -13,6 +13,7 @@ const config = {
   outputRoot: "dist",
   alias: {
     components: path.resolve(__dirname, "..", "src/components"),
+    sql: path.resolve(__dirname, "..", "src/sql"),
     store: path.resolve(__dirname, "..", "src/store"),
     mock: path.resolve(__dirname, "..", "src/mock"),
     service: path.resolve(__dirname, "..", "src/service"),

@@ -76,15 +76,12 @@ export function set(
 }
 
 export function createIndex(
-  dbName,
-  storeName,
   index: string,
   unique: boolean = false,
   customStore = defaultGetStore()
 ) {
-  const request = indexedDB.open(dbName);
-  request.onupgradeneeded = () => {
-    const store = request.result.createObjectStore(storeName);
+
+  return customStore("readonly",(store)=>{
     store.createIndex(index, index, { unique });
-  };
+  })
 }

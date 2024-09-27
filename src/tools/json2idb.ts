@@ -6,5 +6,5 @@ export const json2idb = async()=>{
  const store = createStore("GaoZhongluan","GaoKao")
   set(GaoZhongluan[0].headWord,GaoZhongluan[0],store)
   get(GaoZhongluan[0].headWord,store).then((val) => console.log(val));
-  createIndex("GaoZhongluan","GaoKao",GaoZhongluan[0].headWord)
+  createIndex(GaoZhongluan[0].headWord)
 }
